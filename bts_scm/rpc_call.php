@@ -1,4 +1,5 @@
 <?php
+//Original request to get wallet information from Komodo with user authentication.
 //curl --user user1647593239:pass7e6b0d8e6e6af354d69b0a4c4f90226aff7f48aaea912e7d5b4780ae759bcabab3 --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getwalletinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:9732/
 
 
@@ -25,13 +26,14 @@ elseif (isset($_POST['send_address_bal'])) {
 }
 
 
-
+//changing User and Password details for security reason. 
+//This user name and password are generated in your wallet chain config file.
 function getInfo($url){
 $data = array("jsonrpc" => "1.0", "id" => "curltest","method" => "method", "params"=> "[]");                                                                    
 $data_string="{\"jsonrpc\":\"1.0\",\"id\":\"gettingwalletinfo\",\"method\":\"getwalletinfo\",\"params\":[]}";
 //json_encode($data);                                                             
 $ch = curl_init($url);
-curl_setopt($ch, CURLOPT_USERPWD, "user1647593239" . ":" . "pass7e6b0d8e6e6af354d69b0a4c4f90226aff7f48aaea912e7d5b4780ae759bcabab3");                                                     
+curl_setopt($ch, CURLOPT_USERPWD, "hashedUserName" . ":" . "hashedPassword");                                                     
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST,  "POST");
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -64,7 +66,7 @@ function getReceivedByAddressInfo($address,$url){
 $data_string="{\"jsonrpc\":\"1.0\",\"id\":\"curltest\",\"method\":\"getreceivedbyaddress\",\"params\":[".$address."] }";
 //json_encode($data);                                                             
 $ch = curl_init($url);
-curl_setopt($ch, CURLOPT_USERPWD, "user1647593239" . ":" . "pass7e6b0d8e6e6af354d69b0a4c4f90226aff7f48aaea912e7d5b4780ae759bcabab3");                                                     
+curl_setopt($ch, CURLOPT_USERPWD, "hashedUserName" . ":" . "hashedPassword");                                                     
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST,  "POST");
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -87,7 +89,7 @@ function sendToAddress($address_amount,$url){
 $data_string="{\"jsonrpc\":\"1.0\",\"id\":\"curltest\",\"method\":\"sendtoaddress\",\"params\":[".$address_amount."] }";
 //json_encode($data);                                                             
 $ch = curl_init($url);
-curl_setopt($ch, CURLOPT_USERPWD, "user1647593239" . ":" . "pass7e6b0d8e6e6af354d69b0a4c4f90226aff7f48aaea912e7d5b4780ae759bcabab3");                                                     
+curl_setopt($ch, CURLOPT_USERPWD, "hashedUserName" . ":" . "hashedPassword");                                                     
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST,  "POST");
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
