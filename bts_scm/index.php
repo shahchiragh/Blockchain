@@ -72,6 +72,8 @@ require_once('rpc_call.php');
 
   </body>
   <script>
+  //Few Addresses used here hard-coded for demonstration purpose. 
+  //These Addresses can be dynamically be associated or linked with entity from standalone point of view.
       var nodeAddress="";
       function enterNode(){
         var pattern = new RegExp("^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?):[0-9]{1,5}$");
