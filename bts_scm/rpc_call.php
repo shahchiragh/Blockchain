@@ -1,6 +1,6 @@
 <?php
 //Original request to get wallet information from Komodo with user authentication.
-//curl --user user1647593239:pass7e6b0d8e6e6af354d69b0a4c4f90226aff7f48aaea912e7d5b4780ae759bcabab3 --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getwalletinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:9732/
+//curl --user hashedUserName:hashedPassword --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getwalletinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:9732/
 
 
 if (isset($_POST['get_wallet_bal'])) {
